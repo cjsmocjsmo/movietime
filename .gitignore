@@ -1,0 +1,15 @@
+bin
+include
+lib
+share
+__pycache__
+*.cfg
+*.py~
+newfile.py
+startServer.sh
+
+tests/__pycache__
+tests/*.py~
+static/css/*.css~
+static/js/*.js~
+static/images/thumbnails/*

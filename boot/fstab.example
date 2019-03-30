@@ -1,0 +1,18 @@
+proc            /proc           proc    defaults          0       0
+PARTUUID=b169403c-01  /boot           vfat    defaults          0       2
+PARTUUID=b169403c-02  /               ext4    defaults,noatime  0       1
+# a swapfile is not a swap partition, no line here
+#   use  dphys-swapfile swap[on|off]  for that
+
+#On the pi desktop go into pi preferences and check wait for network option.
+
+
+192.168.1.104:/home	/nfs/home	nfs	auto,nofail,noatime,nolock,intr,tcp,actimeo=1800	0	0
+192.168.1.104:/media/charlie/TAZ	/nfs/usb/TAZ	nfs	auto,nofail,nolock,intr,tcp,actimeo=1800	0	0
+192.168.1.104:/media/charlie/ZERO       /nfs/usb/ZERO	nfs	auto,nofail,nolock,intr,tcp,actimeo=1800	0	0
+192.168.1.104:/media/charlie/ASHES	/nfs/usb/ASHES	nfs	auto,nofail,nolock,intr,tcp,actimeo=1800	0	0
+192.168.1.104:/media/charlie/CHOCOLATE	/nfs/usb/CHOCOLATE	nfs	auto,nofail,nolock,intr,tcp,actimeo=1800	0	0
+
+
+
+
