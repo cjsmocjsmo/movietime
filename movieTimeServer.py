@@ -20,11 +20,14 @@ client = MongoClient()
 db = client.movietime2DB
 define('port', default=8080, help='run on the given port', type=int)
 
+CWD = os.getcwd()
+DBUSCONTROLPATH = "/".join((CWD, "mydbuscontrol.sh"))
+
 class Application(tornado.web.Application):
 	def __init__(self):
 		Movies = '/nfs/home/charlie/Videos/Movies'
 		TVShows = '/nfs/home/charlie/Videos/TVShows'
-		Pictures = "/home/pi/MovieTime2/static/images/thumbnails"
+		Pictures = "/".join((CWD, "static/images/thumbnails"))
 #		Pictures = '/nfs/home/charlie/Pictures'
         
 		handlers = [
@@ -207,8 +210,10 @@ class IntMiscHandler(tornado.web.RequestHandler):
 class STTVS1Handler(tornado.web.RequestHandler):
 	@tornado.gen.coroutine
 	def get(self):
-		epi = [e for e in db.movietime2DB.find({"Catagory":"STTV", "Season":"01"}, {"_id":0, "Title":1, "MediaId":1, "Episode":1}).sort([("Episode", 1)])]
-		self.write(dict(STTVS1=epi))
+	    cmd1 = {"Catagory":"STTV", "Season":"01"}
+	    cmd2 = {"_id":0, "Title":1, "MediaId":1, "Episode":1}
+	    epi = [e for e in db.movietime2DB.find(cmd1, cmd2).sort([("Episode", 1)])]
+	    self.write(dict(STTVS1=epi))
 		
 class STTVS2Handler(tornado.web.RequestHandler):
 	@tornado.gen.coroutine
@@ -396,7 +401,8 @@ class PlayMediaHandler(tornado.web.RequestHandler):
 class PlayHandler(tornado.web.RequestHandler):
 	@tornado.gen.coroutine
 	def get(self):
-		pmm = subprocess.call(["bash", "/home/pi/MovieTime/mydbuscontrol.sh", "play"])
+	    cmd = ["bash", DBUSCONTROLPATH, "play"]
+	    pmm = subprocess.call(cmd)
 		
 class PauseHandler(tornado.web.RequestHandler):
 	@tornado.gen.coroutine
