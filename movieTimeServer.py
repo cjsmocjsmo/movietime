@@ -218,13 +218,17 @@ class STTVS1Handler(tornado.web.RequestHandler):
 class STTVS2Handler(tornado.web.RequestHandler):
 	@tornado.gen.coroutine
 	def get(self):
-		epi = [e for e in db.movietime2DB.find({"Catagory":"STTV", "Season":"02"}, {"_id":0, "Title":1, "MediaId":1, "Episode":1}).sort([("Episode", 1)])]
+	    cmd = {"Catagory":"STTV", "Season":"02"}
+	    cmd1 = {"_id":0, "Title":1, "MediaId":1, "Episode":1}
+		epi = [e for e in db.movietime2DB.find(cmd, cmd1).sort([("Episode", 1)])]
 		self.write(dict(STTVS2=epi))
 		
 class STTVS3Handler(tornado.web.RequestHandler):
 	@tornado.gen.coroutine
 	def get(self):
-		epi = [e for e in db.movietime2DB.find({"Catagory":"STTV", "Season":"03"}, {"_id":0, "Title":1, "MediaId":1, "Episode":1}).sort([("Episode", 1)])]
+	    cmd = {"Catagory":"STTV", "Season":"03"}
+	    cmd1 = {"_id":0, "Title":1, "MediaId":1, "Episode":1}
+		epi = [e for e in db.movietime2DB.find(cmd, cmd1).sort([("Episode", 1)])]
 		self.write(dict(STTVS3=epi))
 
 class TNGS1Handler(tornado.web.RequestHandler):
