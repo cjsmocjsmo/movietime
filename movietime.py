@@ -7,14 +7,13 @@ import string
 import time
 #import base64
 from pymongo import MongoClient
-from pprint import pprint
 from PIL import Image
-from pathlib import PurePath as PP
+from pathlib import PurePath
 
-NOART = "/home/pi/MovieTime/static/images/animals.jpg"    
+NOART = "/".join((os.getcwd(), "static/images/animals.jpg"))    
 PICPATH = "/nfs/home/charlie/Pictures"
 MEDIAPATHLIST = ["/nfs/home/charlie/Videos", "/nfs/usb"]
-ExtList = [".mp4", ".m4v", ".mkv", ".avi"]
+EXTLIST = [".mp4", ".m4v", ".mkv", ".avi"]
 
 client = MongoClient()
 db = client.movietime2DB
@@ -22,16 +21,16 @@ db = client.movietime2DB
 class MyFile:
     def __init__(self, media):
         self.media = media
-        self.purepath = PP(self.media)
+        self.purepath = PurePath(self.media)
         self.parts = self.purepath.parts
         self.parent = self.purepath.parent
-        
         
         self.name = ""
         self.movie_catagory = ""
         self.tvshow_catagory = ""
         self.season = ""
         self.episode = ""
+
         if "Movies" in self.parts:
             self.name = self.purepath.name[:-11]
             self.movie_catagory = list(self.purepath.parts)[6]
@@ -40,6 +39,7 @@ class MyFile:
             self.movie_catagory = list(self.purepath.parts)[4]
         elif "TVShows" in self.parts:
             self.tvshow_catagory = list(self.purepath.parts)[6]
+
             if "Voyager" in self.parts:
                 self.name = self.purepath.name[25:-4]
                 self.season = self.purepath.name[19:21]
@@ -77,22 +77,22 @@ class MyFile:
  
         self.name_and_year = self.purepath.name[:-4]
         self.year = self.purepath.name[-9:-5]
-
+        
         self.search_path = media[:-4]
         self.jpg_search_path = ".".join((self.search_path, "jpg"))
         self.png_search_path = ".".join((self.search_path, "png"))
+        
         self.picfolder = "/".join((PICPATH, str(self.name_and_year)))
         self.picfolder_jpg_search_path = ".".join((self.picfolder, "jpg"))
         self.picfolder_png_search_path = ".".join((self.picfolder, "png"))
 
-        self.save_location = "/".join(("/home/pi/MovieTime2/static/images/thumbnails", self.name_and_year))
+        self.save_location = "/".join((os.getcwd(), "static/images/thumbnails", self.name_and_year))
         self.id = hashlib.md5(str(random.randrange(100000)).encode('utf-8')).hexdigest()
         
 class Thumbnails(MyFile):		
 ##    def get_b64_image(self, location):	
 ##        with open(location, 'rb') as imagefile:
 ##            return ''.join(('data:image/png;base64,', base64.b64encode(imagefile.read()).decode('utf-8')))
-
 
     def movie_thumbnail(self, filename):
         sav_loc = "".join((self.save_location, ".jpg"))
@@ -143,42 +143,35 @@ class Thumbnails(MyFile):
 
 if __name__ == "__main__":
     start_time = time.clock()
-    
     for media_path in MEDIAPATHLIST:
         for (paths, dirs, files) in os.walk(media_path, followlinks=True):
             for filename in files:
                 my_file = os.path.join(paths, filename)
-                if os.path.splitext(my_file)[1] in ExtList:
+                if os.path.splitext(my_file)[1] in EXTLIST:
                     MF = MyFile(my_file)
                     x = {}
-                    x['MediaId'] = str(MF.id)
-                    x["Filename"] = str(MF.media)
                     if "Movies" in MF.parts or "usb" in MF.parts:
-                        #movie = Movies(str(MF.media))
                         thumbnail_path = Thumbnails(str(MF.media)).find_movie_art()
                         thumbnail = Thumbnails(str(MF.media)).movie_thumbnail(thumbnail_path)
-                        
+                        x['MediaId'] = str(MF.id)
+                        x["Filename"] = str(MF.media)
                         x["Name"] = str(MF.name)
                         x['Catagory'] = MF.movie_catagory
                         x['Year'] = str(MF.year)
                         x["Thumbnailpath"] = thumbnail
                         x["Artwork"] = thumbnail[20:]
-                        print("Processed: %s" % MF.name)              
+                        db.movietime2DB.insert(x)              
                     elif "TVShows" in MF.parts:
-                        print(MF.tvshow_catagory)
-                        #tvshow = TVShows(str(MF.media))
                         thumbnail_path = Thumbnails(str(MF.media)).find_tvshow_art()
                         thumbnail = Thumbnails(str(MF.media)).tvshow_thumbnail(thumbnail_path)
+                        x['MediaId'] = str(MF.id)
                         x["Filename"] = str(MF.media)
                         x["Title"] = str(MF.name)
                         x['Catagory'] = MF.tvshow_catagory
                         x['Season'] = str(MF.season)
                         x['Episode'] = str(MF.episode)
                         x["Thumbnailpath"] = thumbnail
-                        x["Artwork"] = thumbnail[20:]   
+                        x["Artwork"] = thumbnail[20:]
+                        db.movietime2DB.insert(x)
                     print("Processed: %s" % MF.name)
-                    print("this is Catagory %s" % MF.movie_catagory)
-                    print("this is Catagory %s" % MF.tvshow_catagory)
-                    print(x)
-                    db.movietime2DB.insert(x)
     print(time.clock() - start_time)
