@@ -401,28 +401,32 @@ class PlayMediaHandler(tornado.web.RequestHandler):
 class PlayHandler(tornado.web.RequestHandler):
 	@tornado.gen.coroutine
 	def get(self):
-	    cmd = ["bash", DBUSCONTROLPATH, "play"]
-	    pmm = subprocess.call(cmd)
+	    play_cmd = ["bash", DBUSCONTROLPATH, "play"]
+	    pmm = subprocess.call(play_cmd)
 		
 class PauseHandler(tornado.web.RequestHandler):
 	@tornado.gen.coroutine
 	def get(self):
-		pm = subprocess.call(["bash", "/home/pi/MovieTime/mydbuscontrol.sh", "pause"])
+	    pause_cmd = ["bash", DBUSCONTROLPATH, "pause"]
+	    pm = subprocess.call(pause_cmd)
 		
 class StopHandler(tornado.web.RequestHandler):
 	@tornado.gen.coroutine
 	def get(self):
-		mp = subprocess.call(["bash", "/home/pi/MovieTime/mydbuscontrol.sh", "stop"])
+	    stop_cmd = ["bash", DBUSCONTROLPATH, "stop"]
+	    mp = subprocess.call(stop_cmd)
 		
 class NextHandler(tornado.web.RequestHandler):
 	@tornado.gen.coroutine
 	def get(self):
-		nt = subprocess.call(["bash", "/home/pi/MovieTime/mydbuscontrol.sh", "seek", "60000000"])
+	    next_seek_cmd = ["bash", DBUSCONTROLPATH, "seek", "60000000"]
+	    nt = subprocess.call(next_seek_cmd)
 
 class PreviousHandler(tornado.web.RequestHandler):
 	@tornado.gen.coroutine
 	def get(self):
-		nt = subprocess.call(["bash", "/home/pi/MovieTime/mydbuscontrol.sh", "seek", "-30000000"])
+	    previous_seek_cmd = ["bash", DBUSCONTROLPATH, "seek", "-30000000"]
+	    nt = subprocess.call(previous_seek_cmd)
 
 class UpdateHandler(tornado.web.RequestHandler):
 	@tornado.gen.coroutine
