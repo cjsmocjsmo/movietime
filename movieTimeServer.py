@@ -29,7 +29,7 @@ class Application(tornado.web.Application):
 		TVShows = '/nfs/home/charlie/Videos/TVShows'
 		Pictures = "/".join((CWD, "static/images/thumbnails"))
 #		Pictures = '/nfs/home/charlie/Pictures'
-        
+
 		handlers = [
 			(r"/Movies/(.*)", tornado.web.StaticFileHandler, {'path': Movies}),
 			(r"/TVShows/(.*)", tornado.web.StaticFileHandler, {'path': TVShows}),
@@ -109,7 +109,7 @@ class IntSciFiHandler(tornado.web.RequestHandler):
 #		chuncks = [l[i:i + n] for i in range(0, len(l), n)]
 #		self.write(dict(IntSciFi=chuncks))
 		self.write(dict(IntSciFi=l))
-	
+
 class InitActionHandler(tornado.web.RequestHandler):
 	@tornado.gen.coroutine
 	def get(self):
@@ -151,7 +151,7 @@ class IntStarTrekHandler(tornado.web.RequestHandler):
 	def get(self):
 		l = [st for st in db.movietime2DB.find({"Catagory":"StarTrek"}, {"_id":0})]
 		self.write(dict(IntStarTrek=l))
-	
+
 class IntStarWarsHandler(tornado.web.RequestHandler):
 	@tornado.gen.coroutine
 	def get(self):
@@ -207,137 +207,154 @@ class IntMiscHandler(tornado.web.RequestHandler):
 		l = [ij for ij in db.movietime2DB.find({"Catagory":"Misc"}, {"_id":0})]
 		self.write(dict(IntMisc=l))
 
+DBCMD = {"_id":0, "Title":1, "MediaId":1, "Episode":1}
+
 class STTVS1Handler(tornado.web.RequestHandler):
 	@tornado.gen.coroutine
 	def get(self):
-	    cmd1 = {"Catagory":"STTV", "Season":"01"}
-	    cmd2 = {"_id":0, "Title":1, "MediaId":1, "Episode":1}
-	    epi = [e for e in db.movietime2DB.find(cmd1, cmd2).sort([("Episode", 1)])]
+	    cmd = {"Catagory":"STTV", "Season":"01"}
+	    epi = [e for e in db.movietime2DB.find(cmd, DBCMD).sort([("Episode", 1)])]
 	    self.write(dict(STTVS1=epi))
-		
+
 class STTVS2Handler(tornado.web.RequestHandler):
 	@tornado.gen.coroutine
 	def get(self):
-	    cmd = {"Catagory":"STTV", "Season":"02"}
-	    cmd1 = {"_id":0, "Title":1, "MediaId":1, "Episode":1}
-		epi = [e for e in db.movietime2DB.find(cmd, cmd1).sort([("Episode", 1)])]
+		cmd = {"Catagory":"STTV", "Season":"02"}
+		epi = [e for e in db.movietime2DB.find(cmd, DBCMD).sort([("Episode", 1)])]
 		self.write(dict(STTVS2=epi))
-		
+
 class STTVS3Handler(tornado.web.RequestHandler):
 	@tornado.gen.coroutine
 	def get(self):
-	    cmd = {"Catagory":"STTV", "Season":"03"}
-	    cmd1 = {"_id":0, "Title":1, "MediaId":1, "Episode":1}
-		epi = [e for e in db.movietime2DB.find(cmd, cmd1).sort([("Episode", 1)])]
+		cmd = {"Catagory":"STTV", "Season":"03"}
+		epi = [e for e in db.movietime2DB.find(cmd, DBCMD).sort([("Episode", 1)])]
 		self.write(dict(STTVS3=epi))
 
 class TNGS1Handler(tornado.web.RequestHandler):
 	@tornado.gen.coroutine
 	def get(self):
-		epi = [e for e in db.movietime2DB.find({"Catagory":"TNG", "Season":"01"}, {"_id":0, "Title":1, "MediaId":1, "Episode":1}).sort([("Episode", 1)])]
-		self.write(dict(TNGS1=epi))
+	    cmd = {"Catagory":"TNG", "Season":"01"}
+	    epi = [e for e in db.movietime2DB.find(cmd, DBCMD).sort([("Episode", 1)])]
+	    self.write(dict(TNGS1=epi))
 
 class TNGS2Handler(tornado.web.RequestHandler):
 	@tornado.gen.coroutine
 	def get(self):
-		epi = [e for e in db.movietime2DB.find({"Catagory":"TNG", "Season":"02"}, {"_id":0, "Title":1, "MediaId":1, "Episode":1}).sort([("Episode", 1)])]
-		self.write(dict(TNGS2=epi))
+	    cmd = {"Catagory":"TNG", "Season":"02"}
+	    epi = [e for e in db.movietime2DB.find(cmd, DBCMD).sort([("Episode", 1)])]
+	    self.write(dict(TNGS2=epi))
 
 class TNGS3Handler(tornado.web.RequestHandler):
 	@tornado.gen.coroutine
 	def get(self):
-		epi = [e for e in db.movietime2DB.find({"Catagory":"TNG", "Season":"03"}, {"_id":0, "Title":1, "MediaId":1, "Episode":1}).sort([("Episode", 1)])]
-		self.write(dict(TNGS3=epi))
+	    cmd = {"Catagory":"TNG", "Season":"03"}
+	    epi = [e for e in db.movietime2DB.find(cmd, DBCMD).sort([("Episode", 1)])]
+	    self.write(dict(TNGS3=epi))
 
 class TNGS4Handler(tornado.web.RequestHandler):
 	@tornado.gen.coroutine
 	def get(self):
-		epi = [e for e in db.movietime2DB.find({"Catagory":"TNG", "Season":"04"}, {"_id":0, "Title":1, "MediaId":1, "Episode":1}).sort([("Episode", 1)])]
-		self.write(dict(TNGS4=epi))
+	    cmd = {"Catagory":"TNG", "Season":"04"}
+	    epi = [e for e in db.movietime2DB.find(cmd, DBCMD).sort([("Episode", 1)])]
+	    self.write(dict(TNGS4=epi))
 
 class TNGS5Handler(tornado.web.RequestHandler):
 	@tornado.gen.coroutine
 	def get(self):
-		epi = [e for e in db.movietime2DB.find({"Catagory":"TNG", "Season":"05"}, {"_id":0, "Title":1, "MediaId":1, "Episode":1}).sort([("Episode", 1)])]
-		self.write(dict(TNGS5=epi))
+	    cmd = {"Catagory":"TNG", "Season":"05"}
+	    epi = [e for e in db.movietime2DB.find(cmd, DBCMD).sort([("Episode", 1)])]
+	    self.write(dict(TNGS5=epi))
 
 class TNGS6Handler(tornado.web.RequestHandler):
 	@tornado.gen.coroutine
 	def get(self):
-		epi = [e for e in db.movietime2DB.find({"Catagory":"TNG", "Season":"06"}, {"_id":0, "Title":1, "MediaId":1, "Episode":1}).sort([("Episode", 1)])]
-		self.write(dict(TNGS6=epi))
+	    cmd = {"Catagory":"TNG", "Season":"06"}
+	    epi = [e for e in db.movietime2DB.find(cmd, DBCMD).sort([("Episode", 1)])]
+	    self.write(dict(TNGS6=epi))
 
 class TNGS7Handler(tornado.web.RequestHandler):
 	@tornado.gen.coroutine
 	def get(self):
-		epi = [e for e in db.movietime2DB.find({"Catagory":"TNG", "Season":"07"}, {"_id":0, "Title":1, "MediaId":1, "Episode":1}).sort([("Episode", 1)])]
-		self.write(dict(TNGS7=epi))
+	    cmd = {"Catagory":"TNG", "Season":"07"}
+	    epi = [e for e in db.movietime2DB.find(cmd, DBCMD).sort([("Episode", 1)])]
+	    self.write(dict(TNGS7=epi))
 
 class VOYS1Handler(tornado.web.RequestHandler):
 	@tornado.gen.coroutine
 	def get(self):
-		epi = [e for e in db.movietime2DB.find({"Catagory":"Voyager", "Season":"01"}, {"_id":0, "Title":1, "MediaId":1, "Episode":1}).sort([("Episode", 1)])]
-		self.write(dict(VOYS1=epi))
+	    cmd = {"Catagory":"Voyager", "Season":"01"}
+	    epi = [e for e in db.movietime2DB.find(cmd, DBCMD).sort([("Episode", 1)])]
+	    self.write(dict(VOYS1=epi))
 
 class VOYS2Handler(tornado.web.RequestHandler):
 	@tornado.gen.coroutine
 	def get(self):
-		epi = [e for e in db.movietime2DB.find({"Catagory":"Voyager", "Season":"02"}, {"_id":0, "Title":1, "MediaId":1, "Episode":1}).sort([("Episode", 1)])]
-		self.write(dict(VOYS2=epi))
+	    cmd = {"Catagory":"Voyager", "Season":"02"}
+	    epi = [e for e in db.movietime2DB.find(cmd, DBCMD).sort([("Episode", 1)])]
+	    self.write(dict(VOYS2=epi))
 
 class VOYS3Handler(tornado.web.RequestHandler):
 	@tornado.gen.coroutine
 	def get(self):
-		epi = [e for e in db.movietime2DB.find({"Catagory":"Voyager", "Season":"03"}, {"_id":0, "Title":1, "MediaId":1, "Episode":1}).sort([("Episode", 1)])]
-		self.write(dict(VOYS3=epi))
+	    cmd = {"Catagory":"Voyager", "Season":"03"}
+	    epi = [e for e in db.movietime2DB.find(cmd, DBCMD).sort([("Episode", 1)])]
+	    self.write(dict(VOYS3=epi))
 
 class VOYS4Handler(tornado.web.RequestHandler):
 	@tornado.gen.coroutine
 	def get(self):
-		epi = [e for e in db.movietime2DB.find({"Catagory":"Voyager", "Season":"04"}, {"_id":0, "Title":1, "MediaId":1, "Episode":1}).sort([("Episode", 1)])]
-		self.write(dict(VOYS4=epi))
+	    cmd = {"Catagory":"Voyager", "Season":"04"}
+	    epi = [e for e in db.movietime2DB.find(cmd, DBCMD).sort([("Episode", 1)])]
+	    self.write(dict(VOYS4=epi))
 
 class VOYS5Handler(tornado.web.RequestHandler):
 	@tornado.gen.coroutine
 	def get(self):
-		epi = [e for e in db.movietime2DB.find({"Catagory":"Voyager", "Season":"05"}, {"_id":0, "Title":1, "MediaId":1, "Episode":1}).sort([("Episode", 1)])]
-		self.write(dict(VOYS5=epi))
+	    cmd = {"Catagory":"Voyager", "Season":"05"}
+	    epi = [e for e in db.movietime2DB.find(cmd, DBCMD).sort([("Episode", 1)])]
+	    self.write(dict(VOYS5=epi))
 
 class VOYS6Handler(tornado.web.RequestHandler):
 	@tornado.gen.coroutine
 	def get(self):
-		epi = [e for e in db.movietime2DB.find({"Catagory":"Voyager", "Season":"06"}, {"_id":0, "Title":1, "MediaId":1, "Episode":1}).sort([("Episode", 1)])]
-		self.write(dict(VOYS6=epi))
+	    cmd = {"Catagory":"Voyager", "Season":"06"}
+	    epi = [e for e in db.movietime2DB.find(cmd, DBCMD).sort([("Episode", 1)])]
+	    self.write(dict(VOYS6=epi))
 
 class VOYS7Handler(tornado.web.RequestHandler):
 	@tornado.gen.coroutine
 	def get(self):
-		epi = [e for e in db.movietime2DB.find({"Catagory":"Voyager", "Season":"07"}, {"_id":0, "Title":1, "MediaId":1, "Episode":1}).sort([("Episode", 1)])]
-		self.write(dict(VOYS7=epi))
+	    cmd = {"Catagory":"Voyager", "Season":"07"}
+	    epi = [e for e in db.movietime2DB.find(cmd, DBCMD).sort([("Episode", 1)])]
+	    self.write(dict(VOYS7=epi))
 
 class ENTS1Handler(tornado.web.RequestHandler):
 	@tornado.gen.coroutine
 	def get(self):
-		epi = [e for e in db.movietime2DB.find({"Catagory":"Enterprise", "Season":"01"}, {"_id":0, "Title":1, "MediaId":1, "Episode":1}).sort([("Episode", 1)])]
-		self.write(dict(ENTS1=epi))
+	    cmd = {"Catagory":"Enterprise", "Season":"01"}
+	    epi = [e for e in db.movietime2DB.find(cmd, DBCMD).sort([("Episode", 1)])]
+	    self.write(dict(ENTS1=epi))
 
 class ENTS2Handler(tornado.web.RequestHandler):
 	@tornado.gen.coroutine
 	def get(self):
-		epi = [e for e in db.movietime2DB.find({"Catagory":"Enterprise", "Season":"02"}, {"_id":0, "Title":1, "MediaId":1, "Episode":1}).sort([("Episode", 1)])]
-		self.write(dict(ENTS2=epi))
+	    cmd = {"Catagory":"Enterprise", "Season":"02"}
+	    epi = [e for e in db.movietime2DB.find(cmd, DBCMD).sort([("Episode", 1)])]
+	    self.write(dict(ENTS2=epi))
 
 class ENTS3Handler(tornado.web.RequestHandler):
 	@tornado.gen.coroutine
 	def get(self):
-		epi = [e for e in db.movietime2DB.find({"Catagory":"Enterprise", "Season":"03"}, {"_id":0, "Title":1, "MediaId":1, "Episode":1}).sort([("Episode", 1)])]
-		self.write(dict(ENTS3=epi))
+	    cmd = {"Catagory":"Enterprise", "Season":"03"}
+	    epi = [e for e in db.movietime2DB.find(cmd, DBCMD).sort([("Episode", 1)])]
+	    self.write(dict(ENTS3=epi))
 
 class ENTS4Handler(tornado.web.RequestHandler):
 	@tornado.gen.coroutine
 	def get(self):
-		epi = [e for e in db.movietime2DB.find({"Catagory":"Enterprise", "Season":"04"}, {"_id":0, "Title":1, "MediaId":1, "Episode":1}).sort([("Episode", 1)])]
-		self.write(dict(ENTS4=epi))
+	    cmd = {"Catagory":"Enterprise", "Season":"04"}
+	    epi = [e for e in db.movietime2DB.find(cmd, DBCMD).sort([("Episode", 1)])]
+	    self.write(dict(ENTS4=epi))
 
 class DISS1Handler(tornado.web.RequestHandler):
 	@tornado.gen.coroutine
@@ -379,7 +396,7 @@ class PlayMediaHandler(tornado.web.RequestHandler):
 	@tornado.gen.coroutine
 	def check_status(self):
 		status = subprocess.call(["bash", "/home/pi/MovieTime/mydbuscontrol.sh", "status", "|", "grep", "Paused"])
-		
+
 		print('this is statussssssssTwo')
 		print(status)
 		return status
@@ -388,7 +405,7 @@ class PlayMediaHandler(tornado.web.RequestHandler):
 #			return 0
 #		else:
 #			return 1
-		
+
 	@tornado.gen.coroutine
 	def get(self):
 		status =  yield self.check_status()
@@ -405,32 +422,32 @@ class PlayMediaHandler(tornado.web.RequestHandler):
 class PlayHandler(tornado.web.RequestHandler):
 	@tornado.gen.coroutine
 	def get(self):
-	    play_cmd = ["bash", DBUSCONTROLPATH, "play"]
-	    pmm = subprocess.call(play_cmd)
-		
+		play_cmd = ["bash", DBUSCONTROLPATH, "play"]
+		pmm = subprocess.call(play_cmd)
+
 class PauseHandler(tornado.web.RequestHandler):
 	@tornado.gen.coroutine
 	def get(self):
-	    pause_cmd = ["bash", DBUSCONTROLPATH, "pause"]
-	    pm = subprocess.call(pause_cmd)
-		
+		pause_cmd = ["bash", DBUSCONTROLPATH, "pause"]
+		pm = subprocess.call(pause_cmd)
+
 class StopHandler(tornado.web.RequestHandler):
 	@tornado.gen.coroutine
 	def get(self):
-	    stop_cmd = ["bash", DBUSCONTROLPATH, "stop"]
-	    mp = subprocess.call(stop_cmd)
-		
+		stop_cmd = ["bash", DBUSCONTROLPATH, "stop"]
+		mp = subprocess.call(stop_cmd)
+
 class NextHandler(tornado.web.RequestHandler):
 	@tornado.gen.coroutine
 	def get(self):
-	    next_seek_cmd = ["bash", DBUSCONTROLPATH, "seek", "60000000"]
-	    nt = subprocess.call(next_seek_cmd)
+		next_seek_cmd = ["bash", DBUSCONTROLPATH, "seek", "60000000"]
+		nt = subprocess.call(next_seek_cmd)
 
 class PreviousHandler(tornado.web.RequestHandler):
 	@tornado.gen.coroutine
 	def get(self):
-	    previous_seek_cmd = ["bash", DBUSCONTROLPATH, "seek", "-30000000"]
-	    nt = subprocess.call(previous_seek_cmd)
+		previous_seek_cmd = ["bash", DBUSCONTROLPATH, "seek", "-30000000"]
+		nt = subprocess.call(previous_seek_cmd)
 
 class UpdateHandler(tornado.web.RequestHandler):
 	@tornado.gen.coroutine
