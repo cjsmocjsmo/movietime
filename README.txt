@@ -1,3 +1,8 @@
+MovieTime is a program that allows you to essentially turn a dumb TV into a little smarter one and 
+along the way re-purpose an old cell phone into a remote control
+
+MovieTime is designed to work on a network  which has a NFS Server setup and configured.installed and the file shares
+already setup.
 MovieTime Installation 
 
 Setup NFS Server

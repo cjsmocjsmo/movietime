@@ -1,23 +1,49 @@
 #!/usr/bin/python3
-
+#    MovieGo
+#    Copyright (C) 2017  Charlie J Smotherman
+#
+#    This program is free software: you can redistribute it and/or modify
+#    it under the terms of the GNU General Public License as published by
+#    the Free Software Foundation, either version 3 of the License, or
+#    (at your option) any later version.
+#
+#    This program is distributed in the hope that it will be useful,
+#    but WITHOUT ANY WARRANTY; without even the implied warranty of
+#    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+#    GNU General Public License for more details.
+#
+#    You should have received a copy of the GNU General Public License
+#    along with this program.  If not, see <https://www.gnu.org/licenses/>.
 import unittest
 import movietime as MT
 
-MovieTestPath = "/home/pi/taz/Videos/Movies/Action/Some Made Up Movie (2018).mp4"
-DiscoveryTestPath ="/home/pi/taz/Videos/TVShows/Discovery/S1/Star Trek Discovery S01E01 The Volcan Hello.mkv"
-EnterpriseTestPath = "/home/pi/taz/Videos/TVShows/Enterprise/S1/Star Trek ENT S01E01 Broken Bow.mkv"
-OrvilleTestPath = "/home/pi/taz/Videos/TVShows/Orville/S1/The Orville S01E01 Old Wounds.mkv"
-STTVTestPath = "/home/pi/taz/Videos/TVShows/STTV/S1/Star Trek STTV S01E01 The Cage.mp4"
-TheLastShipTestPath = "/home/pi/taz/Videos/TVShows/TheLastShip/S1/The Last Ship S01E01 Phase Six.mp4"
-VoyagerTestPath = "/home/pi/taz/Videos/TVShows/Voyager/S1/Star Trek Voyager S01E01 Caretaker.mkv"
-TNGTestPath =  "/home/pi/taz/Videos/TVShows/TNG/S1/Star Trek TNG S01E01 Encounter at Farpoint.mkv"
+MovTestPathPrefix = "/home/pi/taz/Videos/Movies"
+TVTestPathPrefix = "/home/pi/taz/Videos/TVShows"
 PicPath = "/nfs/home/charlie/Pictures"
+
+MovieTestPath = "/".join((MovTestPathPrefix, 
+    "Action/Some Made Up Movie (2018).mp4"))
+DiscoveryTestPath = "/".join((TVTestPathPrefix, 
+    "Discovery/S1/Star Trek Discovery S01E01 The Volcan Hello.mkv"))
+EnterpriseTestPath = "/".join((TVTestPathPrefix, 
+    "Enterprise/S1/Star Trek ENT S01E01 Broken Bow.mkv"))
+OrvilleTestPath = "/".join((TVTestPathPrefix, 
+    "Orville/S1/The Orville S01E01 Old Wounds.mkv"))
+STTVTestPath = "/".join((TVTestPathPrefix, 
+    "STTV/S1/Star Trek STTV S01E01 The Cage.mp4"))
+TheLastShipTestPath = "/".join((TVTestPathPrefix, 
+    "TheLastShip/S1/The Last Ship S01E01 Phase Six.mp4"))
+VoyagerTestPath = "/".join((TVTestPathPrefix, 
+    "Voyager/S1/Star Trek Voyager S01E01 Caretaker.mkv"))
+TNGTestPath =  "/".join((TVTestPathPrefix, 
+    "TNG/S1/Star Trek TNG S01E01 Encounter at Farpoint.mkv"))
 
 MF = MT.MyFile(MovieTestPath)
 
 class TestMyFile(unittest.TestCase):
     def test_media(self):
-        self.assertEqual(MF.media, "/home/pi/taz/Videos/Movies/Action/Some Made Up Movie (2018).mp4")
+        self.assertEqual(MF.media, "/".join((MovTestPathPrefix,
+            "Action/Some Made Up Movie (2018).mp4")))
     
     def test_parts(self):
         self.assertEqual(len(MF.parts), 8)

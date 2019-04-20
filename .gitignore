@@ -5,6 +5,7 @@ share
 __pycache__
 *.cfg
 *.py~
+*.txt~
 newfile.py
 startServer.sh
 
