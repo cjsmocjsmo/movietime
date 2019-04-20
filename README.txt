@@ -1,5 +1,12 @@
-MovieTime is a program that allows you to essentially turn a dumb TV into a little smarter one and 
-along the way re-purpose an old cell phone into a remote control
+MovieTime was written for the Raspberry Pi to take advantage of OMXPlayers 
+superior video playback as compared to browser playback.  With limited storage
+space on the Raspberry Pi a NFS server will be needed to server up the video
+files to the Pi.
+
+does this  which was
+written is a program that allows you to essentially turn a dumb TV into a 
+little smarter one and along the way re-purpose an old cell phone into a remote
+control.
 
 MovieTime is designed to work on a network  which has a NFS Server setup and configured.installed and the file shares
 already setup.
@@ -7,7 +14,7 @@ MovieTime Installation
 
 Setup NFS Server
 install nfs-kernel-server
-edit /etc/exports 
+edit /etc/exports
 sudo systemctl daemon-reload
 sudo systemctl start nfs-server
 sudo systemctl status nfs-server

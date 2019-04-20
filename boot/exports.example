@@ -8,16 +8,6 @@
 # /srv/nfs4        gss/krb5i(rw,sync,fsid=0,crossmnt,no_subtree_check)
 # /srv/nfs4/homes  gss/krb5i(rw,sync,no_subtree_check)
 #
-#/home 192.168.1.109(rw,sync,no_subtree_check,no_root_squash)
-
-#/media/charlie/1CF9-CA54/Mov1 192.168.1.109(rw,sync,no_subtree_check,no_root_squash)
-
-#/media/charlie/4FF9-9D26/Mov2 192.168.1.109(rw,sync,no_subtree_check,no_root_squash)
-
-#/media/charlie/80BE-27DD/Mov3 192.168.1.109(rw,sync,no_subtree_check,no_root_squash)
-
-#/media/charlie/B038-3B28/Mov4 192.168.1.109(rw,sync,no_subtree_check,no_root_squash)
-
 
 /home 192.168.1.101(rw,sync,no_subtree_check,no_root_squash)
 
