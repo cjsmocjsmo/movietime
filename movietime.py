@@ -132,8 +132,8 @@ class Thumbnails(MyFile):
         else:
             try:
                 im2 = Image.open(filename)
-                width, height = im2.size
-                aspect_ratio = width  /  height
+                #width, height = im2.size
+                #aspect_ratio = width  /  height
                 siz = (100, 100)
                 im2.resize(siz, Image.ANTIALIAS)
                 im2.save(sav_loc, "JPEG")
