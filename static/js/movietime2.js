@@ -510,7 +510,7 @@ $(document).on('click', '#movimg', function () {
 		"mid": tlsepisodeid1
 	},
 	function(data) {
-		console.log(data);
+		return data;
 	})
 })
 
@@ -538,7 +538,7 @@ $(document).on('click', '#movimg', function () {
 		"mid": tlsepisodeid2
 	},
 	function(data) {
-		console.log(data);
+		return data;
 	})
 })
 
@@ -566,7 +566,7 @@ $(document).on('click', '#movimg', function () {
 		"mid": tlsepisodeid3
 	},
 	function(data) {
-		console.log(data);
+		return data;
 	})
 })
 
@@ -589,39 +589,38 @@ $(document).on('click', '#movimg', function () {
 
 .on('click', '.tlss4Btn', function () {
 	var tlsepisodeid4 = $(this).attr('id');
-	console.log(tlsepisodeid4);
 	$.get("PlayMedia",
 	{
 		"mid": tlsepisodeid4
 	},
 	function(data) {
-		console.log(data);
+		return data;
 	})
 })
 
 .on('click', '#playBtn', function () {
 	$.get('Play', function () {
-		console.log("PlayBtn has been pressed");
+		//console.log("PlayBtn has been pressed");
 	})
 })
 .on('click', '#pauseBtn', function () {
 	$.get('Pause', function () {
-		console.log("PauseBtn has been pressed");
+		//console.log("PauseBtn has been pressed");
 	})
 })
 .on('click', '#stopBtn', function () {
 	$.get('Stop', function () {
-		console.log("StopBtn has been pressed");
+		//console.log("StopBtn has been pressed");
 	})
 })
 .on('click', '#nextBtn', function () {
 	$.get('Next', function () {
-		console.log("NextBtn has been pressed");
+		//console.log("NextBtn has been pressed");
 	})
 })
 .on('click', '#prevBtn', function () {
 	$.get('Previous', function () {
-		console.log("PreviousBtn has been pressed");
+		//console.log("PreviousBtn has been pressed");
 	})
 })
 
@@ -649,7 +648,7 @@ $(document).on('click', '#movimg', function () {
 })
 .on('click', 'shutdownBtn', function () {
 	$.get('ShutDown', function () {
-		console.log("Shutting Down")	
+		//console.log("Shutting Down")	
 	})
 })
 
@@ -667,7 +666,7 @@ $.mobile.loader.prototype.options.text,
 		textVisible = $this.jqmData("textvisible") ||
 $.mobile.loader.prototype.options.textVisible,
 		textonly = !!$this.jqmData('textonly');
-		html1 = $this.jqmData("html") || "";
+		var html1 = $this.jqmData("html") || "";
 	$.mobile.loading("show", {
 			text: msgText,
 			textVisible: textVisible,
