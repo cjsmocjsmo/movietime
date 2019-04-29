@@ -15,6 +15,16 @@
 //    You should have received a copy of the GNU General Public License
 //    along with this program.  If not, see <https://www.gnu.org/licenses/>.
 
+function makeGrid1(aimglist) {
+	var bb1 = "<div class='oddone ui-body ui-body-b'>"
+	var blkAImg1 = "<a href='#intro'><img id='" + aimglist.MediaId + "' class='blkAImg' src='" + aimglist.Artwork + "'></img></a>";
+	var closeA1 = "</div>";
+	var mg1 = bb1 + blkAImg1 + closeA1;
+	return mg1;
+}
+
+
+
 $(document).on('click', '#movimg', function () {
 	$('#foo3').toggle();
 })
@@ -717,11 +727,35 @@ $.mobile.loader.prototype.options.textVisible,
 })
 
 .on('click', '#meninblackBtn', function () {
-	initMenInBlack();
+	if ($('#meninblackMain').children().length === 0){
+		$.get('IntMenInBlack', function (data) {
+			$.each(data.IntMenInBlack, function (mibkey, mibval) {
+				var MIBarr1 = makeGrid1(mibval);
+				$('#meninblackMain').append(MIBarr1);	
+			})
+		})
+	}
 })
 
 .on('click', '#scifiBtn', function () {
-	initSciFi();
+	//initSciFi();
+
+	if ($('#scifiMain').children().length === 0){
+		$.get('IntSciFi', function (data) {
+			$.each(data.IntSciFi, function ( SciFikey, SciFival ) {
+/*			var SciFileng = SciFival.length;
+			if (SciFileng == 2) {
+				var SciFiarr2 = makeGrid2(SciFival);
+				$('#scifiMain').append(SciFiarr2);
+			}
+			if (SciFileng == 1) {*/
+				var SciFiarr1 = makeGrid1(SciFival);
+				$('#scifiMain').append(SciFiarr1); 			
+			})
+		})
+	}
+
+
 })
 
 .on('click', '#starwarsBtn', function () {

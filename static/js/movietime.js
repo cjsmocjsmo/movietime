@@ -17,13 +17,13 @@
 #    along with this program.  If not, see <https://www.gnu.org/licenses/>.
 */
 
-function makeGrid1(aimglist) {
-	var bb1 = "<div class='oddone ui-body ui-body-b'>"
-	var blkAImg1 = "<a href='#intro'><img id='" + aimglist.MediaId + "' class='blkAImg' src='" + aimglist.Artwork + "'></img></a>";
-	var closeA1 = "</div>";
-	var mg1 = bb1 + blkAImg1 + closeA1;
-	return mg1;
-}
+// function makeGrid1(aimglist) {
+// 	var bb1 = "<div class='oddone ui-body ui-body-b'>"
+// 	var blkAImg1 = "<a href='#intro'><img id='" + aimglist.MediaId + "' class='blkAImg' src='" + aimglist.Artwork + "'></img></a>";
+// 	var closeA1 = "</div>";
+// 	var mg1 = bb1 + blkAImg1 + closeA1;
+// 	return mg1;
+// }
 /*
 function makeGrid2(aimglist) {
 	var grid = "<div class='ui-grid-a'>";
@@ -244,16 +244,16 @@ function initMisc() {
 	}
 }
 
-function initMenInBlack() {
-	if ($('#meninblackMain').children().length === 0){
-		$.get('IntMenInBlack', function (data) {
-			$.each(data.IntMenInBlack, function (mibkey, mibval) {
-				var MIBarr1 = makeGrid1(mibval);
-				$('#meninblackMain').append(MIBarr1);	
-			})
-		})
-	}
-}
+// function initMenInBlack() {
+// 	if ($('#meninblackMain').children().length === 0){
+// 		$.get('IntMenInBlack', function (data) {
+// 			$.each(data.IntMenInBlack, function (mibkey, mibval) {
+// 				var MIBarr1 = makeGrid1(mibval);
+// 				$('#meninblackMain').append(MIBarr1);	
+// 			})
+// 		})
+// 	}
+// }
 
 
 var initMtime = function () {
