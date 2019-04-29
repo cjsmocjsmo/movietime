@@ -29,7 +29,7 @@ $(document).on('click', '#movimg', function () {
 		"mid": movid
 	},
 	function(data) {
-		console.log(data);
+		return data;
 	})
 })
 .on('click', '#sttv1', function () {
@@ -87,7 +87,7 @@ $(document).on('click', '#movimg', function () {
 		"mid": sttvepisodeid
 	},
 	function(data) {
-		console.log(data);
+		return data;
 	})
 })
 
@@ -163,12 +163,12 @@ $(document).on('click', '#movimg', function () {
 	$('#tngMain').empty();
 	$.get('TNGs5', function (data) {
 		var tng5e1 = "<ul id='tngs5' data-role='list-view'>";
-		tng5f1 = '';
+		var tng5f1 = '';
 		$.each(data.TNGS5, function ( tng5key, tng5val ) {
 			var tng5e2 = "<li><a href='#intro' class='tng5Btn' id='" + tng5val.MediaId;
 			var tng5e3 = "'><span class='ui-li-count'>" + tng5val.Episode + "</span>" + tng5val.Title + "</li>";
-			tng5f1 = tng5f1 + tng5e2 + tng5e3;
-			return tng5f1;
+			var tng5f2 = tng5f1 + tng5e2 + tng5e3;
+			return tng5f2;
 		})
 		var tng5foo = tng5e1 + tng5f1;
 		$('#tngMain').append(tng5foo);
