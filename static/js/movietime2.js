@@ -1,3 +1,4 @@
+/*eslint-env jquery*/
 //    MovieGo
 //    Copyright (C) 2017  Charlie J Smotherman
 //
@@ -34,7 +35,6 @@ $(document).on('click', '#movimg', function () {
 .on('click', '#sttv1', function () {
 	$('#sttvMain').empty();
 	$.get('STTVs1', function (data) {
-	    console.log(data);
 		var sttv1e1 = "<ul id='sttvs1' data-role='list-view'>";
 		var sttv1f1 = '';
 		$.each(data.STTVS1, function ( sttv1key, sttv1val ) {
@@ -634,16 +634,11 @@ $(document).on('click', '#movimg', function () {
 	$("#update2").hide();
 	//$('#updateStart').html("Updating Video Library").delay('fast').fadeIn();
 	$.get('Update', function (data) {
-		
-		console.log("this is update exit status");
-		console.log(data.EX.exit);
-		
 		if (data.EX.exit != 1) {
 			$("#update1").hide()
 			$("#update2, #doneBtn").show()
 			
-		};
-		
+		}
 	})
 	
 	
@@ -654,7 +649,7 @@ $(document).on('click', '#movimg', function () {
 })
 .on('click', 'shutdownBtn', function () {
 	$.get('ShutDown', function () {
-		console.log("Shutting Down");	
+		console.log("Shutting Down")	
 	})
 })
 
@@ -672,13 +667,13 @@ $.mobile.loader.prototype.options.text,
 		textVisible = $this.jqmData("textvisible") ||
 $.mobile.loader.prototype.options.textVisible,
 		textonly = !!$this.jqmData('textonly');
-		html = $this.jqmData("html") || "";
+		html1 = $this.jqmData("html") || "";
 	$.mobile.loading("show", {
 			text: msgText,
 			textVisible: textVisible,
 			theme: theme,
 			textonly: textonly,
-			html: html
+			html: html1,
 	});
 })
 

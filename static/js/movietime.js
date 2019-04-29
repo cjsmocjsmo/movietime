@@ -1,3 +1,4 @@
+/*eslint-env jquery*/
 /*
 #    MovieGo
 #    Copyright (C) 2017  Charlie J Smotherman
@@ -22,7 +23,7 @@ function makeGrid1(aimglist) {
 	var closeA1 = "</div>";
 	var mg1 = bb1 + blkAImg1 + closeA1;
 	return mg1;
-};
+}
 /*
 function makeGrid2(aimglist) {
 	var grid = "<div class='ui-grid-a'>";
@@ -64,10 +65,7 @@ function initSciFi() {
 	if ($('#scifiMain').children().length === 0){
 		
 		$.get('IntSciFi', function (data) {
-		    console.log("this is data");
-		    console.log(data);
 			$.each(data.IntSciFi, function ( SciFikey, SciFival ) {
-
 /*			var SciFileng = SciFival.length;
 			if (SciFileng == 2) {
 				var SciFiarr2 = makeGrid2(SciFival);
@@ -79,7 +77,7 @@ function initSciFi() {
 			})
 		})
 	}
-};			
+}			
 
 function initAction() {
 	if ($('#actionMain').children().length === 0){
@@ -90,7 +88,7 @@ function initAction() {
 			})
 		})
 	}
-};
+}
 
 function initComedy() {
 	if ($('#comedyMain').children().length === 0){
@@ -101,7 +99,7 @@ function initComedy() {
 			})
 		})
 	}
-};
+}
 
 function initDrama() {
 	if ($('#dramaMain').children().length === 0){
@@ -112,7 +110,7 @@ function initDrama() {
 			})
 		})
 	}
-};
+}
 
 function initCartoons() {
 	if ($('#cartoonsMain').children().length === 0){
@@ -123,7 +121,7 @@ function initCartoons() {
 			})
 		})
 	}
-};
+}
 
 function initKingsman() {
 	if ($('#kingsmanMain').children().length === 0){
@@ -134,7 +132,7 @@ function initKingsman() {
 			})
 		})
 	}
-};
+}
 
 function initGodzilla() {
 	if ($('#godzillaMain').children().length === 0){
@@ -145,7 +143,7 @@ function initGodzilla() {
 			})
 		})
 	}
-};
+}
 
 function initStarTrek() {
 	if ($('#startrekMain').children().length === 0){
@@ -156,7 +154,7 @@ function initStarTrek() {
 			})
 		})
 	}
-};
+}
 
 function initStarWars() {
 	if ($('#starwarsMain').children().length === 0){
@@ -167,7 +165,7 @@ function initStarWars() {
 			})
 		})
 	}
-};
+}
 
 function initSuperHeros() {
 	if ($('#superherosMain').children().length === 0){
@@ -178,7 +176,7 @@ function initSuperHeros() {
 			})
 		})
 	}
-};
+}
 
 function initIndianaJones() {
 	if ($('#indianajonesMain').children().length === 0){
@@ -189,7 +187,7 @@ function initIndianaJones() {
 			})
 		})
 	}
-};
+}
 
 function initHarryPotter() {
 	if ($('#harrypotterMain').children().length === 0){
@@ -200,7 +198,7 @@ function initHarryPotter() {
 			})
 		})
 	}
-};
+}
 
 function initTremors() {
 	if ($('#tremorsMain').children().length === 0){
@@ -211,7 +209,7 @@ function initTremors() {
 			})
 		})
 	}
-};
+}
 
 function initJohnWayne() {
 	if ($('#johnwayneMain').children().length === 0){
@@ -222,7 +220,7 @@ function initJohnWayne() {
 			})
 		})
 	}
-};
+}
 
 function initJurassicPark() {
 	if ($('#jurassicparkMain').children().length === 0){
@@ -233,7 +231,7 @@ function initJurassicPark() {
 			})
 		})
 	}
-};
+}
 
 function initMisc() {
 	if ($('#miscMain').children().length === 0){
@@ -244,7 +242,7 @@ function initMisc() {
 			})
 		})
 	}
-};
+}
 
 function initMenInBlack() {
 	if ($('#meninblackMain').children().length === 0){
@@ -255,7 +253,7 @@ function initMenInBlack() {
 			})
 		})
 	}
-};
+}
 
 
 var initMtime = function () {
