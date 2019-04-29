@@ -20,7 +20,6 @@ import hashlib
 import random
 import string
 import time
-#import base64
 from pymongo import MongoClient
 from PIL import Image
 from pathlib import PurePath
