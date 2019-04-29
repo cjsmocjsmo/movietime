@@ -347,7 +347,7 @@ $(document).on('click', '#movimg', function () {
 		"mid": voyepisodeid1
 	},
 	function(data) {
-		console.log(data);
+		return data;
 	})
 })
 
@@ -372,12 +372,12 @@ $(document).on('click', '#movimg', function () {
 	$('#entMain').empty();
 	$.get('ENTs2', function (data) {
 		var ent2e1 = "<ul id='ents2' data-role='list-view'>";
-		ent2f1 = '';
+		var ent2f1 = '';
 		$.each(data.ENTS2, function ( ent2key, ent2val ) {
 			var ent2e2 = "<li><a href='#intro' class='ent2Btn' id='" + ent2val.MediaId;
 			var ent2e3 = "'><span class='ui-li-count'>" + ent2val.Episode + "</span>" + ent2val.Title + "</a></li>";
-			ent2f1 = ent2f1 + ent2e2 + ent2e3;
-			return ent2f1;
+			var ent2f2 = ent2f1 + ent2e2 + ent2e3;
+			return ent2f2;
 		})
 		var ent2foo = ent2e1 + ent2f1;
 		$('#entMain').append(ent2foo);
@@ -426,7 +426,7 @@ $(document).on('click', '#movimg', function () {
 		"mid": entepisodeid1
 	},
 	function(data) {
-		console.log(data);
+		return data;
 	})
 })
 
@@ -454,7 +454,7 @@ $(document).on('click', '#movimg', function () {
 		"mid": disepisodeid1
 	},
 	function(data) {
-		console.log(data);
+		return data;
 	})
 })
 
@@ -482,7 +482,7 @@ $(document).on('click', '#movimg', function () {
 		"mid": orvepisodeid1
 	},
 	function(data) {
-		console.log(data);
+		return data;
 	})
 })
 
