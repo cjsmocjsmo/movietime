@@ -25,13 +25,10 @@
 	margin-top: -1px;
 }
 
-
 #playBtn, #pauseBtn, #nextBtn, #prevBtn, #stopBtn {
 	display: block;
 	height: 5em;
 }
-
-
 
 .oddone {
 	display: block;
@@ -45,7 +42,6 @@
 	padding: 10px;
 	height: 250px;
 }
-
 
 #introimg, #movimg, #tvimg {
 	display: block;
