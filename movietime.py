@@ -25,8 +25,8 @@ from PIL import Image
 from pathlib import PurePath
 
 NOART = "/".join((os.getcwd(), "static/images/animals.jpg"))    
-PICPATH = "/nfs/home/charlie/Pictures"
-MEDIAPATHLIST = ["/nfs/home/charlie/Videos", "/nfs/usb"]
+PICPATH = "/home/teresa/Pictures"
+MEDIAPATHLIST = ["/home/teresa/Videos", "/nfs/usb"]
 EXTLIST = [".mp4", ".m4v", ".mkv", ".avi"]
 
 client = MongoClient()
@@ -161,6 +161,7 @@ if __name__ == "__main__":
         for (paths, dirs, files) in os.walk(media_path, followlinks=True):
             for filename in files:
                 my_file = os.path.join(paths, filename)
+                print(my_file)
                 if os.path.splitext(my_file)[1] in EXTLIST:
                     MF = MyFile(my_file)
                     x = {}
