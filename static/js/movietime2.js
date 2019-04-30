@@ -39,7 +39,10 @@ function makeGrid2(aimglist) {
 	return nblk2;
 };*/
 
-
+var initMtime = function () {
+	$("#foo3, #foo4, #doneBtn, #update2").hide();
+};
+$(window).load(initMtime)
 
 $(document).on('click', '#movimg', function () {
 	$('#foo3').toggle();
@@ -762,18 +765,11 @@ $.mobile.loader.prototype.options.textVisible,
 	if ($('#scifiMain').children().length === 0){
 		$.get('IntSciFi', function (data) {
 			$.each(data.IntSciFi, function ( SciFikey, SciFival ) {
-			if (SciFileng == 2) {
-				var SciFiarr2 = makeGrid2(SciFival);
-				$('#scifiMain').append(SciFiarr2);
-			}
-			if (SciFileng == 1) {*/
 				var SciFiarr1 = makeGrid1(SciFival);
-				$('#scifiMain').append(SciFiarr1); 			
+				$('#scifiMain').append(SciFiarr1);
 			})
 		})
 	}
-
-
 })
 .on('click', '#starwarsBtn', function () {
 	if ($('#starwarsMain').children().length === 0){
@@ -824,4 +820,5 @@ $.mobile.loader.prototype.options.textVisible,
 			})
 		})
 	}
-});
+})
+})
