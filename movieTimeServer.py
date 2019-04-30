@@ -493,81 +493,95 @@ class TLSS2Handler(tornado.web.RequestHandler):
 
 
 class TLSS3Handler(tornado.web.RequestHandler):
-	@tornado.gen.coroutine
-	def get(self):
-	    cmd = {"Catagory":"TheLastShip", "Season":"03"}
-	    epi = [e for e in db.movietime2DB.find(cmd, DBCMD).sort([("Episode", 1)])]
-	    self.write(dict(TLSS3=epi))
+    @tornado.gen.coroutine
+    def get(self):
+        cmd = {"Catagory": "TheLastShip", "Season": "03"}
+        epi = [e for e in db.movietime2DB.find(
+            cmd, DBCMD).sort([("Episode", 1)])]
+        self.write(dict(TLSS3=epi))
+
 
 class TLSS4Handler(tornado.web.RequestHandler):
-	@tornado.gen.coroutine
-	def get(self):
-	    cmd = {"Catagory":"TheLastShip", "Season":"04"}
-	    epi = [e for e in db.movietime2DB.find(cmd, DBCMD).sort([("Episode", 1)])]
-	    self.write(dict(TLSS4=epi))
+    @tornado.gen.coroutine
+    def get(self):
+        cmd = {"Catagory": "TheLastShip", "Season": "04"}
+        epi = [e for e in db.movietime2DB.find(
+            cmd, DBCMD).sort([("Episode", 1)])]
+        self.write(dict(TLSS4=epi))
+
 
 class PlayMediaHandler(tornado.web.RequestHandler):
-	@tornado.gen.coroutine
-	def check_status(self):
-		status = subprocess.call(["bash", DBUSCONTROLPATH, "status", "|", "grep", "Paused"])
-		return status
+    @tornado.gen.coroutine
+    def check_status(self):
+        cmdd = ["bash", DBUSCONTROLPATH, "status", "|", "grep", "Paused"]
+        status = subprocess.call(cmdd)
+        return status
 
-	@tornado.gen.coroutine
-	def get(self):
-		status =  yield self.check_status()
-		if status == 1:
-			p = parse_qs(urlparse(self.request.full_url()).query)
-			mediaid = p['mid'][0]
-			mediainfo = db.movietime2DB.find_one({"MediaId": mediaid}, {"_id":0})
-			player = OMXPlayer(mediainfo["Filename"])
-			self.write(dict(PM=mediainfo))
-		else:
-			print("Press the Stop Button A movie is already playing")
-			pass
+    @tornado.gen.coroutine
+    def get(self):
+        status = yield self.check_status()
+        if status == 1:
+            p = parse_qs(urlparse(self.request.full_url()).query)
+            mediaid = p['mid'][0]
+            mediainfo = db.movietime2DB.find_one(
+                {"MediaId": mediaid}, {"_id": 0})
+            player = OMXPlayer(mediainfo["Filename"])
+            self.write(dict(PM=mediainfo))
+        else:
+            print("Press the Stop Button A movie is already playing")
+            pass
+
 
 class PlayHandler(tornado.web.RequestHandler):
-	@tornado.gen.coroutine
-	def get(self):
-		play_cmd = ["bash", DBUSCONTROLPATH, "play"]
-		pmm = subprocess.call(play_cmd)
+    @tornado.gen.coroutine
+    def get(self):
+        play_cmd = ["bash", DBUSCONTROLPATH, "play"]
+        pmm = subprocess.call(play_cmd)
+
 
 class PauseHandler(tornado.web.RequestHandler):
-	@tornado.gen.coroutine
-	def get(self):
-		pause_cmd = ["bash", DBUSCONTROLPATH, "pause"]
-		pm = subprocess.call(pause_cmd)
+    @tornado.gen.coroutine
+    def get(self):
+        pause_cmd = ["bash", DBUSCONTROLPATH, "pause"]
+        pm = subprocess.call(pause_cmd)
+
 
 class StopHandler(tornado.web.RequestHandler):
-	@tornado.gen.coroutine
-	def get(self):
-		stop_cmd = ["bash", DBUSCONTROLPATH, "stop"]
-		mp = subprocess.call(stop_cmd)
+    @tornado.gen.coroutine
+    def get(self):
+        stop_cmd = ["bash", DBUSCONTROLPATH, "stop"]
+        mp = subprocess.call(stop_cmd)
+
 
 class NextHandler(tornado.web.RequestHandler):
-	@tornado.gen.coroutine
-	def get(self):
-		next_seek_cmd = ["bash", DBUSCONTROLPATH, "seek", "60000000"]
-		nt = subprocess.call(next_seek_cmd)
+    @tornado.gen.coroutine
+    def get(self):
+        next_seek_cmd = ["bash", DBUSCONTROLPATH, "seek", "60000000"]
+        nt = subprocess.call(next_seek_cmd)
+
 
 class PreviousHandler(tornado.web.RequestHandler):
-	@tornado.gen.coroutine
-	def get(self):
-		previous_seek_cmd = ["bash", DBUSCONTROLPATH, "seek", "-30000000"]
-		nt = subprocess.call(previous_seek_cmd)
+    @tornado.gen.coroutine
+    def get(self):
+        previous_seek_cmd = ["bash", DBUSCONTROLPATH, "seek", "-30000000"]
+        nt = subprocess.call(previous_seek_cmd)
+
 
 class UpdateHandler(tornado.web.RequestHandler):
-	@tornado.gen.coroutine
-	def get(self):
-		update = MT.MovieTimeSetUp().main()
-		if update == 0:
-			ex = {"exit":"0"}
-			self.write(dict(EX=ex))
+    @tornado.gen.coroutine
+    def get(self):
+        update = MT.MovieTimeSetUp().main()
+        if update == 0:
+            ex = {"exit": "0"}
+            self.write(dict(EX=ex))
+
 
 def main():
-	tornado.options.parse_command_line()
-	http_server = tornado.httpserver.HTTPServer(Application())
-	http_server.listen(options.port)
-	tornado.ioloop.IOLoop.instance().start()
+    tornado.options.parse_command_line()
+    http_server = tornado.httpserver.HTTPServer(Application())
+    http_server.listen(options.port)
+    tornado.ioloop.IOLoop.instance().start()
+
 
 if __name__ == "__main__":
-	main()
+    main()
