@@ -61,113 +61,113 @@ function makeGrid2(aimglist) {
 	return n3;
 };*/
 
-function initSciFi() {
-	if ($('#scifiMain').children().length === 0){
+// function initSciFi() {
+// 	if ($('#scifiMain').children().length === 0){
 		
-		$.get('IntSciFi', function (data) {
-			$.each(data.IntSciFi, function ( SciFikey, SciFival ) {
-/*			var SciFileng = SciFival.length;
-			if (SciFileng == 2) {
-				var SciFiarr2 = makeGrid2(SciFival);
-				$('#scifiMain').append(SciFiarr2);
-			}
-			if (SciFileng == 1) {*/
-				var SciFiarr1 = makeGrid1(SciFival);
-				$('#scifiMain').append(SciFiarr1); 			
-			})
-		})
-	}
-}			
+// 		$.get('IntSciFi', function (data) {
+// 			$.each(data.IntSciFi, function ( SciFikey, SciFival ) {
+// /*			var SciFileng = SciFival.length;
+// 			if (SciFileng == 2) {
+// 				var SciFiarr2 = makeGrid2(SciFival);
+// 				$('#scifiMain').append(SciFiarr2);
+// 			}
+// 			if (SciFileng == 1) {*/
+// 				var SciFiarr1 = makeGrid1(SciFival);
+// 				$('#scifiMain').append(SciFiarr1); 			
+// 			})
+// 		})
+// 	}
+// }			
 
-function initAction() {
-	if ($('#actionMain').children().length === 0){
-		$.get('IntAction', function (data) {
-			$.each(data.IntAction, function ( Actionkey, Actionval ) {
-				var Actionarr1 = makeGrid1(Actionval);
-				$('#actionMain').append(Actionarr1);
-			})
-		})
-	}
-}
+// function initAction() {
+// 	if ($('#actionMain').children().length === 0){
+// 		$.get('IntAction', function (data) {
+// 			$.each(data.IntAction, function ( Actionkey, Actionval ) {
+// 				var Actionarr1 = makeGrid1(Actionval);
+// 				$('#actionMain').append(Actionarr1);
+// 			})
+// 		})
+// 	}
+// }
 
-function initComedy() {
-	if ($('#comedyMain').children().length === 0){
-		$.get('IntComedy', function (data) {
-			$.each(data.IntComedy, function ( Comedykey, Comedyval ) {
-				var Comedyarr1 = makeGrid1(Comedyval);
-				$('#comedyMain').append(Comedyarr1);
-			})
-		})
-	}
-}
+// function initComedy() {
+// 	if ($('#comedyMain').children().length === 0){
+// 		$.get('IntComedy', function (data) {
+// 			$.each(data.IntComedy, function ( Comedykey, Comedyval ) {
+// 				var Comedyarr1 = makeGrid1(Comedyval);
+// 				$('#comedyMain').append(Comedyarr1);
+// 			})
+// 		})
+// 	}
+// }
 
-function initDrama() {
-	if ($('#dramaMain').children().length === 0){
-		$.get('IntDrama', function (data) {
-			$.each(data.IntDrama, function ( Dramakey, Dramaval ) {
-				var Dramaarr3 = makeGrid1(Dramaval);
-				$('#dramaMain').append(Dramaarr3);
-			})
-		})
-	}
-}
+// function initDrama() {
+// 	if ($('#dramaMain').children().length === 0){
+// 		$.get('IntDrama', function (data) {
+// 			$.each(data.IntDrama, function ( Dramakey, Dramaval ) {
+// 				var Dramaarr3 = makeGrid1(Dramaval);
+// 				$('#dramaMain').append(Dramaarr3);
+// 			})
+// 		})
+// 	}
+// }
 
-function initCartoons() {
-	if ($('#cartoonsMain').children().length === 0){
-		$.get('IntCartoons', function (data) {
-			$.each(data.IntCartoons, function ( Cartoonskey, Cartoonsval ) {
-				var Cartoonsarr3 = makeGrid1(Cartoonsval);
-				$('#cartoonsMain').append(Cartoonsarr3);
-			})
-		})
-	}
-}
+// function initCartoons() {
+// 	if ($('#cartoonsMain').children().length === 0){
+// 		$.get('IntCartoons', function (data) {
+// 			$.each(data.IntCartoons, function ( Cartoonskey, Cartoonsval ) {
+// 				var Cartoonsarr3 = makeGrid1(Cartoonsval);
+// 				$('#cartoonsMain').append(Cartoonsarr3);
+// 			})
+// 		})
+// 	}
+// }
 
-function initKingsman() {
-	if ($('#kingsmanMain').children().length === 0){
-		$.get('IntKingsMan', function (data) {
-			$.each(data.IntKingsMan, function ( Kingkey, Kingval ) {
-				var Kingsmanarr2 = makeGrid1(Kingval);
-				$('#kingsmanMain').append(Kingsmanarr2);
-			})
-		})
-	}
-}
+// function initKingsman() {
+// 	if ($('#kingsmanMain').children().length === 0){
+// 		$.get('IntKingsMan', function (data) {
+// 			$.each(data.IntKingsMan, function ( Kingkey, Kingval ) {
+// 				var Kingsmanarr2 = makeGrid1(Kingval);
+// 				$('#kingsmanMain').append(Kingsmanarr2);
+// 			})
+// 		})
+// 	}
+// }
 
-function initGodzilla() {
-	if ($('#godzillaMain').children().length === 0){
-		$.get('IntGodzilla', function (data) {
-			$.each(data.IntGodzilla, function ( GodzillaKey, GodzillaVal) {
-				var Godzillaarr1 = makeGrid1(GodzillaVal);
-				$('#godzillaMain').append(Godzillaarr1);
-			})
-		})
-	}
-}
+// function initGodzilla() {
+// 	if ($('#godzillaMain').children().length === 0){
+// 		$.get('IntGodzilla', function (data) {
+// 			$.each(data.IntGodzilla, function ( GodzillaKey, GodzillaVal) {
+// 				var Godzillaarr1 = makeGrid1(GodzillaVal);
+// 				$('#godzillaMain').append(Godzillaarr1);
+// 			})
+// 		})
+// 	}
+// }
 
-function initStarTrek() {
-	if ($('#startrekMain').children().length === 0){
-		$.get('IntStarTrek', function (data) {
-			$.each(data.IntStarTrek, function ( StarTrekkey, StarTrekval ) {
-				var StarTrekarr1 = makeGrid1(StarTrekval);
-				$('#startrekMain').append(StarTrekarr1);
-			})
-		})
-	}
-}
+// function initStarTrek() {
+// 	if ($('#startrekMain').children().length === 0){
+// 		$.get('IntStarTrek', function (data) {
+// 			$.each(data.IntStarTrek, function ( StarTrekkey, StarTrekval ) {
+// 				var StarTrekarr1 = makeGrid1(StarTrekval);
+// 				$('#startrekMain').append(StarTrekarr1);
+// 			})
+// 		})
+// 	}
+// }
 
-function initStarWars() {
-	if ($('#starwarsMain').children().length === 0){
-		$.get('IntStarWars', function (data) {
-			$.each(data.IntStarWars, function ( key, val ) {
-				var arr1 = makeGrid1(val);
-				$('#starwarsMain').append(arr1);
-			})
-		})
-	}
-}
+// function initStarWars() {
+// 	if ($('#starwarsMain').children().length === 0){
+// 		$.get('IntStarWars', function (data) {
+// 			$.each(data.IntStarWars, function ( key, val ) {
+// 				var arr1 = makeGrid1(val);
+// 				$('#starwarsMain').append(arr1);
+// 			})
+// 		})
+// 	}
+// }
 
-function initSuperHeros() {
+/* function initSuperHeros() {
 	if ($('#superherosMain').children().length === 0){
 		$.get('IntSuperHeros', function (data) {
 			$.each(data.IntSuperHeros, function ( shkey, shval ) {
@@ -176,9 +176,9 @@ function initSuperHeros() {
 			})
 		})
 	}
-}
+} */
 
-function initIndianaJones() {
+/* function initIndianaJones() {
 	if ($('#indianajonesMain').children().length === 0){
 		$.get('IntIndianaJones', function (data) {
 			$.each(data.IntIndianaJones, function ( ijkey, ijval ) {
@@ -187,9 +187,9 @@ function initIndianaJones() {
 			})
 		})
 	}
-}
+} */
 
-function initHarryPotter() {
+/* function initHarryPotter() {
 	if ($('#harrypotterMain').children().length === 0){
 		$.get('IntHarryPotter', function (data) {
 			$.each(data.IntHarryPotter, function ( HPkey, HPval ) {
@@ -198,9 +198,9 @@ function initHarryPotter() {
 			})
 		})
 	}
-}
+} */
 
-function initTremors() {
+/* function initTremors() {
 	if ($('#tremorsMain').children().length === 0){
 		$.get('IntTremors', function (data) {
 			$.each(data.IntTremors, function (Tremorskey, Tremorsval) {
@@ -209,9 +209,9 @@ function initTremors() {
 			})
 		})
 	}
-}
+} */
 
-function initJohnWayne() {
+/* function initJohnWayne() {
 	if ($('#johnwayneMain').children().length === 0){
 		$.get('IntJohnWayne', function (data) {
 			$.each(data.IntJohnWayne, function ( JohnWaynekey, JohnWayneval ) {
@@ -220,9 +220,9 @@ function initJohnWayne() {
 			})
 		})
 	}
-}
+} */
 
-function initJurassicPark() {
+/* function initJurassicPark() {
 	if ($('#jurassicparkMain').children().length === 0){
 		$.get('IntJurassicPark', function (data) {
 			$.each(data.IntJurasicPark, function (jurkey, jurval) {
@@ -231,9 +231,9 @@ function initJurassicPark() {
 			})
 		})
 	}
-}
+} */
 
-function initMisc() {
+/* function initMisc() {
 	if ($('#miscMain').children().length === 0){
 		$.get('IntMisc', function (data) {
 			$.each(data.IntMisc, function ( Misckey, Miscval ) {
@@ -242,7 +242,7 @@ function initMisc() {
 			})
 		})
 	}
-}
+} */
 
 // function initMenInBlack() {
 // 	if ($('#meninblackMain').children().length === 0){
@@ -258,21 +258,21 @@ function initMisc() {
 
 var initMtime = function () {
 	$("#foo3, #foo4, #doneBtn, #update2").hide();
-	initSciFi();
+/*	initSciFi();
 	initAction();
 	initComedy();
 	initDrama();
 	initCartoons();
-/*	initKingsman();
-	initGodzilla();*/
+	initKingsman();
+	initGodzilla();
 	initStarTrek();
 	initStarWars();
 	initSuperHeros();
-/*	initIndianaJones();
-	initHarryPotter();*/
+	initIndianaJones();
+	initHarryPotter();
 	initJohnWayne();
 	initJurassicPark();
-/*	initTremors();
+	initTremors();
 	initMenInBlack();
 	initMisc();*/
 };
