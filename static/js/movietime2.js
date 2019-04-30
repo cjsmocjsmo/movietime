@@ -742,7 +742,7 @@ $.mobile.loader.prototype.options.textVisible,
 })
 
 .on('click', '#dramaBtn', function () {
-	initDrama();
+	//initDrama();
 	
 	if ($('#dramaMain').children().length === 0){
 		$.get('IntDrama', function (data) {
