@@ -47,7 +47,6 @@ $(document).on('click', '#movimg', function () {
 .on('click', '#tvimg', function () {
 	$('#foo4').toggle();
 })
-
 .on('click', '.blkAImg, .blkBImg, .blkCImg, .blkDImg', function () {
 	var movid = $(this).attr('id');
 	$.get("PlayMedia",
@@ -116,7 +115,6 @@ $(document).on('click', '#movimg', function () {
 		return data;
 	})
 })
-
 .on('click', '#tng1', function () {
 	$('#tngMain').empty();
 	$.get('TNGs1', function (data) {
@@ -133,7 +131,6 @@ $(document).on('click', '#movimg', function () {
 		$('#tngs1').listview().trigger('refresh');
 	})
 })
-
 .on('click', '#tng2', function () {
 	$('#tngMain').empty();
 	$.get('TNGs2', function (data) {
@@ -150,7 +147,6 @@ $(document).on('click', '#movimg', function () {
 		$('#tngs2').listview().trigger('refresh');
 	})
 })
-
 .on('click', '#tng3', function () {
 	$('#tngMain').empty();
 	$.get('TNGs3', function (data) {
@@ -167,7 +163,6 @@ $(document).on('click', '#movimg', function () {
 		$('#tngs3').listview().trigger('refresh');
 	})
 })
-
 .on('click', '#tng4', function () {
 	$('#tngMain').empty();
 	$.get('TNGs4', function (data) {
@@ -184,7 +179,6 @@ $(document).on('click', '#movimg', function () {
 		$('#tngs4').listview().trigger('refresh');
 	})
 })
-
 .on('click', '#tng5', function () {
 	$('#tngMain').empty();
 	$.get('TNGs5', function (data) {
@@ -201,7 +195,6 @@ $(document).on('click', '#movimg', function () {
 		$('#tngs5').listview().trigger('refresh');
 	})
 })
-
 .on('click', '#tng6', function () {
 	$('#tngMain').empty();
 	$.get('TNGs6', function (data) {
@@ -218,7 +211,6 @@ $(document).on('click', '#movimg', function () {
 		$('#tngs6').listview().trigger('refresh');
 	})
 })
-
 .on('click', '#tng7', function () {
 	$('#tngMain').empty();
 	$.get('TNGs7', function (data) {
@@ -235,7 +227,6 @@ $(document).on('click', '#movimg', function () {
 		$('#tngs7').listview().trigger('refresh');
 	})
 })
-
 .on('click', '.tng1Btn, .tng2Btn, .tng3Btn, .tng4Btn, .tng5Btn, .tng6Btn, .tng7Btn', function () {
 	var tngepisodeid1 = $(this).attr('id');
 	$.get("PlayMedia",
@@ -246,7 +237,6 @@ $(document).on('click', '#movimg', function () {
 		console.log(tngepisodeid1);
 	})
 })
-
 .on('click', '#voy1', function () {
 	$('#voyMain').empty();
 	$.get('VOYs1', function (data) {
@@ -263,7 +253,6 @@ $(document).on('click', '#movimg', function () {
 		$('#voys1').listview().trigger('refresh');
 	})
 })
-
 .on('click', '#voy2', function () {
 	$('#voyMain').empty();
 	$.get('VOYs2', function (data) {
@@ -280,7 +269,6 @@ $(document).on('click', '#movimg', function () {
 		$('#voys2').listview().trigger('refresh');
 	})
 })
-
 .on('click', '#voy3', function () {
 	$('#voyMain').empty();
 	$.get('VOYs3', function (data) {
@@ -297,7 +285,6 @@ $(document).on('click', '#movimg', function () {
 		$('#voys3').listview().trigger('refresh');
 	})
 })
-
 .on('click', '#voy4', function () {
 	$('#voyMain').empty();
 	$.get('VOYs4', function (data) {
@@ -314,7 +301,6 @@ $(document).on('click', '#movimg', function () {
 		$('#voys4').listview().trigger('refresh');
 	})
 })
-
 .on('click', '#voy5', function () {
 	$('#voyMain').empty();
 	$.get('VOYs5', function (data) {
@@ -331,7 +317,6 @@ $(document).on('click', '#movimg', function () {
 		$('#voys5').listview().trigger('refresh');
 	})
 })
-
 .on('click', '#voy6', function () {
 	$('#voyMain').empty();
 	$.get('VOYs6', function (data) {
@@ -348,7 +333,6 @@ $(document).on('click', '#movimg', function () {
 		$('#voys6').listview().trigger('refresh');
 	})
 })
-
 .on('click', '#voy7', function () {
 	$('#voyMain').empty();
 	$.get('VOYs7', function (data) {
@@ -365,7 +349,6 @@ $(document).on('click', '#movimg', function () {
 		$('#voys7').listview().trigger('refresh');
 	})
 })
-
 .on('click', '.voy1Btn, .voy2Btn, .voy3Btn, .voy4Btn, .voy5Btn, .voy6Btn, .voy7Btn', function () {
 	var voyepisodeid1 = $(this).attr('id');
 	$.get("PlayMedia",
@@ -376,7 +359,6 @@ $(document).on('click', '#movimg', function () {
 		return data;
 	})
 })
-
 .on('click', '#ent1', function () {
 	$('#entMain').empty();
 	$.get('ENTs1', function (data) {
@@ -393,7 +375,6 @@ $(document).on('click', '#movimg', function () {
 		$('#ents1').listview().trigger('refresh');
 	})
 })
-
 .on('click', '#ent2', function () {
 	$('#entMain').empty();
 	$.get('ENTs2', function (data) {
@@ -410,7 +391,6 @@ $(document).on('click', '#movimg', function () {
 		$('#ents2').listview().trigger('refresh');
 	})
 })
-
 .on('click', '#ent3', function () {
 	$('#entMain').empty();
 	$.get('ENTs3', function (data) {
@@ -427,7 +407,6 @@ $(document).on('click', '#movimg', function () {
 		$('#ents3').listview().trigger('refresh');
 	})
 })
-
 .on('click', '#ent4', function () {
 	$('#entMain').empty();
 	$.get('ENTs4', function (data) {
@@ -444,7 +423,6 @@ $(document).on('click', '#movimg', function () {
 		$('#ents4').listview().trigger('refresh');
 	})
 })
-
 .on('click', '.ent1Btn, .ent2Btn, .ent3Btn, .ent4Btn', function () {
 	var entepisodeid1 = $(this).attr('id');
 	$.get("PlayMedia",
@@ -455,7 +433,6 @@ $(document).on('click', '#movimg', function () {
 		return data;
 	})
 })
-
 .on('click', '#dis1', function () {
 	$('#disMain').empty();
 	$.get('DISs1', function (data) {
@@ -472,7 +449,6 @@ $(document).on('click', '#movimg', function () {
 		$('#diss1').listview().trigger('refresh');
 	})
 })
-
 .on('click', '.dis1Btn', function () {
 	var disepisodeid1 = $(this).attr('id');
 	$.get("PlayMedia",
@@ -483,7 +459,6 @@ $(document).on('click', '#movimg', function () {
 		return data;
 	})
 })
-
 .on('click', '#orv1', function () {
 	$('#orvMain').empty();
 	$.get('ORVs1', function (data) {
@@ -500,7 +475,6 @@ $(document).on('click', '#movimg', function () {
 		$('#orvs1').listview().trigger('refresh');
 	})
 })
-
 .on('click', '.orvs1Btn', function () {
 	var orvepisodeid1 = $(this).attr('id');
 	$.get("PlayMedia",
@@ -511,7 +485,6 @@ $(document).on('click', '#movimg', function () {
 		return data;
 	})
 })
-
 .on('click', '#tls1', function () {
 	$('#tlsMain').empty();
 	$.get('TLSs1', function (data) {
@@ -528,7 +501,6 @@ $(document).on('click', '#movimg', function () {
 		$('#tlss1').listview().trigger('refresh');
 	})
 })
-
 .on('click', '.tlss1Btn', function () {
 	var tlsepisodeid1 = $(this).attr('id');
 	$.get("PlayMedia",
@@ -539,7 +511,6 @@ $(document).on('click', '#movimg', function () {
 		return data;
 	})
 })
-
 .on('click', '#tls2', function () {
 	$('#tlsMain').empty();
 	$.get('TLSs2', function (data) {
@@ -556,7 +527,6 @@ $(document).on('click', '#movimg', function () {
 		$('#tlss2').listview().trigger('refresh');
 	})
 })
-
 .on('click', '.tlss2Btn', function () {
 	var tlsepisodeid2 = $(this).attr('id');
 	$.get("PlayMedia",
@@ -567,7 +537,6 @@ $(document).on('click', '#movimg', function () {
 		return data;
 	})
 })
-
 .on('click', '#tls3', function () {
 	$('#tlsMain').empty();
 	$.get('TLSs3', function (data) {
@@ -584,7 +553,6 @@ $(document).on('click', '#movimg', function () {
 		$('#tlss3').listview().trigger('refresh');
 	})
 })
-
 .on('click', '.tlss3Btn', function () {
 	var tlsepisodeid3 = $(this).attr('id');
 	$.get("PlayMedia",
@@ -595,7 +563,6 @@ $(document).on('click', '#movimg', function () {
 		return data;
 	})
 })
-
 .on('click', '#tls4', function () {
 	$('#tlsMain').empty();
 	$.get('TLSs4', function (data) {
@@ -612,7 +579,6 @@ $(document).on('click', '#movimg', function () {
 		$('#tlss4').listview().trigger('refresh');
 	})
 })
-
 .on('click', '.tlss4Btn', function () {
 	var tlsepisodeid4 = $(this).attr('id');
 	$.get("PlayMedia",
@@ -623,7 +589,6 @@ $(document).on('click', '#movimg', function () {
 		return data;
 	})
 })
-
 .on('click', '#playBtn', function () {
 	$.get('Play', function () {
 		//console.log("PlayBtn has been pressed");
@@ -649,11 +614,6 @@ $(document).on('click', '#movimg', function () {
 		//console.log("PreviousBtn has been pressed");
 	})
 })
-
-
-
-
-
 .on('click', '#updateBtn', function () {
 	$("#update1").show();
 	$("#update2").hide();
@@ -665,24 +625,11 @@ $(document).on('click', '#movimg', function () {
 			
 		}
 	})
-	
-	
-/*	setTimeout(function () {
-		$('#updateStart').fadeToggle('slow', 'linear');
-	}, 2000);*/
-	
-})
 .on('click', 'shutdownBtn', function () {
 	$.get('ShutDown', function () {
 		//console.log("Shutting Down")	
 	})
 })
-
-//.on('click', )
-
-
-
-
 .on('click', ".show-page-loading-msg", function () {
 	var $this = $(this),
 		theme = $this.jqmData("theme") ||
@@ -701,10 +648,7 @@ $.mobile.loader.prototype.options.textVisible,
 			html: html1,
 	});
 })
-
 .on('click', "#actionBtn", function () {
-	//initAction();
-
 	if ($('#actionMain').children().length === 0){
 		$.get('IntAction', function (data) {
 			$.each(data.IntAction, function ( Actionkey, Actionval ) {
@@ -714,10 +658,7 @@ $.mobile.loader.prototype.options.textVisible,
 		})
 	}
 })
-
 .on('click', '#cartoonsBtn', function () {
-	//initCartoons();
-
 	if ($('#cartoonsMain').children().length === 0){
 		$.get('IntCartoons', function (data) {
 			$.each(data.IntCartoons, function ( Cartoonskey, Cartoonsval ) {
@@ -727,10 +668,7 @@ $.mobile.loader.prototype.options.textVisible,
 		})
 	}
 })
-
 .on('click', '#comedyBtn', function () {
-	//initComedy();
-
 	if ($('#comedyMain').children().length === 0){
 		$.get('IntComedy', function (data) {
 			$.each(data.IntComedy, function ( Comedykey, Comedyval ) {
@@ -740,10 +678,7 @@ $.mobile.loader.prototype.options.textVisible,
 		})
 	}
 })
-
 .on('click', '#dramaBtn', function () {
-	//initDrama();
-	
 	if ($('#dramaMain').children().length === 0){
 		$.get('IntDrama', function (data) {
 			$.each(data.IntDrama, function ( Dramakey, Dramaval ) {
@@ -753,10 +688,7 @@ $.mobile.loader.prototype.options.textVisible,
 		})
 	}
 })
-
 .on('click', '#godzillaBtn', function () {
-	//initGodzilla();
-
 	if ($('#godzillaMain').children().length === 0){
 		$.get('IntGodzilla', function (data) {
 			$.each(data.IntGodzilla, function ( GodzillaKey, GodzillaVal) {
@@ -766,10 +698,7 @@ $.mobile.loader.prototype.options.textVisible,
 		})
 	}
 })
-
 .on('click', '#harrypotterBtn', function () {
-	//initHarryPotter();
-
 	if ($('#harrypotterMain').children().length === 0){
 		$.get('IntHarryPotter', function (data) {
 			$.each(data.IntHarryPotter, function ( HPkey, HPval ) {
@@ -779,10 +708,7 @@ $.mobile.loader.prototype.options.textVisible,
 		})
 	}
 })
-
 .on('click', '#indianajonesBtn', function () {
-	//initIndianaJones();
-
 	if ($('#indianajonesMain').children().length === 0){
 		$.get('IntIndianaJones', function (data) {
 			$.each(data.IntIndianaJones, function ( ijkey, ijval ) {
@@ -792,10 +718,7 @@ $.mobile.loader.prototype.options.textVisible,
 		})
 	}
 })
-
 .on("click", "#johnwayneBtn", function () {
-	//initJohnWayne();
-
 	if ($('#johnwayneMain').children().length === 0){
 		$.get('IntJohnWayne', function (data) {
 			$.each(data.IntJohnWayne, function ( JohnWaynekey, JohnWayneval ) {
@@ -805,10 +728,7 @@ $.mobile.loader.prototype.options.textVisible,
 		})
 	}
 })
-
 .on("click", "#jurassicparkBtn", function () {
-	//initJurassicPark();
-
 	if ($('#jurassicparkMain').children().length === 0){
 		$.get('IntJurassicPark', function (data) {
 			$.each(data.IntJurasicPark, function (jurkey, jurval) {
@@ -818,10 +738,7 @@ $.mobile.loader.prototype.options.textVisible,
 		})
 	}
 })
-
 .on('click', '#kingsmanBtn', function () {
-	//initKingsman();
-
 	if ($('#kingsmanMain').children().length === 0){
 		$.get('IntKingsMan', function (data) {
 			$.each(data.IntKingsMan, function ( Kingkey, Kingval ) {
@@ -831,7 +748,6 @@ $.mobile.loader.prototype.options.textVisible,
 		})
 	}
 })
-
 .on('click', '#meninblackBtn', function () {
 	if ($('#meninblackMain').children().length === 0){
 		$.get('IntMenInBlack', function (data) {
@@ -842,14 +758,10 @@ $.mobile.loader.prototype.options.textVisible,
 		})
 	}
 })
-
 .on('click', '#scifiBtn', function () {
-	//initSciFi();
-
 	if ($('#scifiMain').children().length === 0){
 		$.get('IntSciFi', function (data) {
 			$.each(data.IntSciFi, function ( SciFikey, SciFival ) {
-/*			var SciFileng = SciFival.length;
 			if (SciFileng == 2) {
 				var SciFiarr2 = makeGrid2(SciFival);
 				$('#scifiMain').append(SciFiarr2);
@@ -863,10 +775,7 @@ $.mobile.loader.prototype.options.textVisible,
 
 
 })
-
 .on('click', '#starwarsBtn', function () {
-	//initStarWars();
-
 	if ($('#starwarsMain').children().length === 0){
 		$.get('IntStarWars', function (data) {
 			$.each(data.IntStarWars, function ( key, val ) {
@@ -876,10 +785,7 @@ $.mobile.loader.prototype.options.textVisible,
 		})
 	}
 })
-
 .on('click', '#startrekMBtn', function () {
-	//initStarTrek();
-
 	if ($('#startrekMain').children().length === 0){
 		$.get('IntStarTrek', function (data) {
 			$.each(data.IntStarTrek, function ( StarTrekkey, StarTrekval ) {
@@ -889,10 +795,7 @@ $.mobile.loader.prototype.options.textVisible,
 		})
 	}
 })
-
 .on('click', '#superherosBtn', function () {
-	//initSuperHeros();
-
 	if ($('#superherosMain').children().length === 0){
 		$.get('IntSuperHeros', function (data) {
 			$.each(data.IntSuperHeros, function ( shkey, shval ) {
@@ -902,10 +805,7 @@ $.mobile.loader.prototype.options.textVisible,
 		})
 	}
 })
-
 .on('click', '#tremorsBtn', function () {
-	//initTremors();
-
 	if ($('#tremorsMain').children().length === 0){
 		$.get('IntTremors', function (data) {
 			$.each(data.IntTremors, function (Tremorskey, Tremorsval) {
@@ -915,10 +815,7 @@ $.mobile.loader.prototype.options.textVisible,
 		})
 	}
 })
-
 .on('click', '#miscBtn', function () {
-	//initMisc();
-
 	if ($('#miscMain').children().length === 0){
 		$.get('IntMisc', function (data) {
 			$.each(data.IntMisc, function ( Misckey, Miscval ) {
@@ -927,6 +824,4 @@ $.mobile.loader.prototype.options.textVisible,
 			})
 		})
 	}
-})
-
-;
+});
