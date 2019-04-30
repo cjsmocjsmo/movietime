@@ -256,8 +256,8 @@ function makeGrid2(aimglist) {
 // }
 
 
-var initMtime = function () {
-	$("#foo3, #foo4, #doneBtn, #update2").hide();
+// var initMtime = function () {
+// 	$("#foo3, #foo4, #doneBtn, #update2").hide();
 /*	initSciFi();
 	initAction();
 	initComedy();
@@ -275,5 +275,5 @@ var initMtime = function () {
 	initTremors();
 	initMenInBlack();
 	initMisc();*/
-};
-$(window).load(initMtime)
+// };
+// $(window).load(initMtime)
