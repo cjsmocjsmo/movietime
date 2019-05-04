@@ -3,43 +3,43 @@ superior video playback as compared to browser playback.  With limited storage
 space on the Raspberry Pi a NFS server will be needed to server up the video
 files to the Pi.
 
-does this  which was
-written is a program that allows you to essentially turn a dumb TV into a 
-little smarter one and along the way re-purpose an old cell phone into a remote
-control.
+Setup
 
-MovieTime is designed to work on a network  which has a NFS Server setup and configured.installed and the file shares
-already setup.
-MovieTime Installation 
+From the desktop open pi preferences and check "wait for network" option
+or sudo raspi-config select "Boot Options" select "wait for network". This
+will tell systemctl not to bring up movietime until the network is available.
 
-Setup NFS Server
-install nfs-kernel-server
-edit /etc/exports
-sudo systemctl daemon-reload
-sudo systemctl start nfs-server
-sudo systemctl status nfs-server
+Open a terminal and install mongodb if it is not already installed
+    sudo apt install mongodb
 
-Setup Pi
+You will also need Omxplayer, which comes pre installed on raspbian,
+however if it is not 
+    sudo apt install omxplayer
 
-install raspbian
-additional packages needed
-	nfs-common
-	mongodb
-	python3-pymongo
-	omxplayer (if not already installed)
-	omxplayer-wrapper (use sudo pip3 install omxplayer-wrapper)
-	
-since pip3 dosent install to a global location we need to move it 
-	from: /usr/local/<python version>/dist-packages
-	to: /usr/lib/python3/dist-packages
+Setup your python virtual enviroment and these additional packages will be
+needed
+    omxplayer-wrapper (omxplayer python bindings)
+    pymongo (db bindings)
+    tornado (webserver)
+    PIL or pillow (image processing)
 
-from the desktop open pi preferences and check "wait for network" option
+Now move movietime into your virtual enviroment
 
-or sudo raspi-config select "Boot Options" select "wait for network"
+Make the needed adjustments to /etc/fstab, please see /boot/fstab.example
 
-move movietime.service into /lib/systemd/system
+Then run sudo mount -a this will mount all of your NFS mounts.
+Your nfs mounts should be automatic on restarts.
+
+If you would like movietime to start automatically on boot then 
+move movietime.service into /lib/systemd/system and then preform these
+commands
 	sudo systemctl daemon-reload
 	sudo systemctl start movietime.service
 	
-now set up /etc/fstab using the example provided
-	
+The paths to movie and poster art will need to be edited as they have been
+hard coded into the app.  As this is a personal project and I did not see a
+need for a configuration or an authintication system at this time.
+
+BE WARNED DO NO USE THIS IS THE WILD, USE IT ON YOUR HOME NETWORK ONLY.
+THERE IS NO AUTHINTICATION/SECURITY SYSTEM IT IS MEANT FOR PERSONAL 
+USE ONLY
