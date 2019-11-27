@@ -3,8 +3,7 @@ superior video playback as compared to browser playback.  With limited storage
 space on the Raspberry Pi a NFS server will be needed to server up the video
 files to the Pi.
 
-does this  which was
-written is a program that allows you to essentially turn a dumb TV into a 
+MovieTime is a program that allows you to essentially turn a dumb TV into a 
 little smarter one and along the way re-purpose an old cell phone into a remote
 control.
 
